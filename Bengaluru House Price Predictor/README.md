@@ -48,5 +48,6 @@ The project uses a Ridge Regression model trained on a cleaned dataset derived f
     ```
 
 5.  **Open the application:**
-    Navigate to `http://127.0.0.1:5001` in your web browser."# ML-Projects" 
+    Navigate to `http://127.0.0.1:5001` in your web browser Brave."# ML-Projects" 
 "# ML-Projects" 
+
