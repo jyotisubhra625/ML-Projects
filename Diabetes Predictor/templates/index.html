@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        .form-input { width: 100%; padding: 8px; margin: 10px 0; box-sizing: border-box; }
+        .btn { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }
+        .result-box { margin-top: 20px; padding: 15px; border-radius: 5px; }
+        .result-box h3 { margin: 0; }
+        .result-box p { margin: 5px 0 0 0; font-size: 0.9em; }
+        
+        /* New styles for the result categories */
+        .not-diabetic { background-color: #d4edda; color: #155724; }
+        .borderline { background-color: #fff3cd; color: #856404; }
+        .diabetic { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Diabetes Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input class="form-input" type="text" name="pregnancies" placeholder="Pregnancies" required="required" />
+            <input class="form-input" type="text" name="glucose" placeholder="Glucose" required="required" />
+            <input class="form-input" type="text" name="blood_pressure" placeholder="Blood Pressure" required="required" />
+            <input class="form-input" type="text" name="skin_thickness" placeholder="Skin Thickness" required="required" />
+            <input class="form-input" type="text" name="insulin" placeholder="Insulin" required="required" />
+            <input class="form-input" type="text" name="bmi" placeholder="BMI" required="required" />
+            <input class="form-input" type="text" name="dpf" placeholder="Diabetes Pedigree Function" required="required" />
+            <input class="form-input" type="text" name="age" placeholder="Age" required="required" />
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        <br>
+        
+        {% if prediction_text %}
+        <div class="result-box {{ result_class }}">
+            <h3>{{ prediction_text }}</h3>
+            <!-- <p>{{ score_text }}</p> -->
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
